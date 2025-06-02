@@ -34,6 +34,13 @@ Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () 
         Route::post('/', [JadwalPeriksaController::class, 'store'])->name('dokter.jadwal-periksa.store');
         Route::patch('/{id}', [JadwalPeriksaController::class, 'update'])->name('dokter.jadwal-periksa.update');
     });
+
+    Route::prefix('obat')->group(function () {
+        Route::get('/', [\App\Http\Controllers\ObatController::class, 'index'])->name('dokter.obat.index');
+        Route::post('/', [\App\Http\Controllers\ObatController::class, 'store'])->name('dokter.obat.store');
+        Route::put('/{obat}', [\App\Http\Controllers\ObatController::class, 'update'])->name('dokter.obat.update');
+        Route::delete('/{obat}', [\App\Http\Controllers\ObatController::class, 'destroy'])->name('dokter.obat.destroy');
+    });
 });
 
 require __DIR__.'/auth.php';
