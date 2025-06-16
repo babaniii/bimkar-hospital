@@ -22,7 +22,7 @@ class RiwayatPeriksaController extends Controller
 
     public function detail($id)
     {
-        $janjiPeriksa = JanjiPeriksa::with(['jadwalPeriksa.dokter, periksa.detailPeriksas.obat'])->findOrFail($id);
+        $janjiPeriksa = JanjiPeriksa::with(['jadwalPeriksa.dokter'])->findOrFail($id);
 
         return view('pasien.riwayat-periksa.detail')->with([
             'janjiPeriksa' => $janjiPeriksa,
