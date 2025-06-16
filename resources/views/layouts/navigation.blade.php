@@ -28,10 +28,47 @@
                         <x-nav-link :href="route('dokter.obat.index')" :active="request()->routeIs('dokter.obat.index')">
                             {{ __('Obat') }}
                         </x-nav-link>
+
+                        <!-- Nav Link Desktop -->
+                        <x-nav-link 
+                            :href="route('dokter.memeriksa.index')" 
+                            :active="request()->routeIs('dokter.memeriksa.index')"
+                        >
+                            {{ __('Memeriksa') }}
+                        </x-nav-link>
+
+                        <!-- Nav Link Mobile (Responsive) -->
+                        <x-responsive-nav-link 
+                            :href="route('dokter.memeriksa.index')" 
+                            :active="request()->routeIs('dokter.memeriksa.index')"
+                        >
+                            {{ __('Memeriksa') }}
+                        </x-responsive-nav-link>
+
+
                     @elseif(Auth::user()->role == 'pasien')
-                        <x-nav-link :href="route('pasien.dashboard')" :active="request()->routeIs('pasien.dashboard')">
+                        <x-nav-link
+                            :href="route('pasien.dashboard')"
+                            :active="request()->routeIs('pasien.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
+                        <x-nav-link
+                            :href="route('pasien.janji-periksa.index')"
+                            :active="request()->routeIs('pasien.janji-periksa.index')">
+                            {{ __('Janji Periksa') }}
+                        </x-nav-link>
+
+                        <x-nav-link
+                            :href="route('pasien.riwayat-periksa.index')"
+                            :active="request()->routeIs('pasien.riwayat-periksa.index')">
+                            {{ __('Riwayat Periksa') }}
+                        </x-nav-link>
+
+                        <x-responsive-nav-link
+                            :href="route('pasien.riwayat-periksa.index')"
+                            :active="request()->routeIs('pasien.riwayat-periksa.index')">
+                            {{ __('Riwayat Periksa') }}
+                        </x-responsive-nav-link>
                     @endif
                 </div>
             </div>
